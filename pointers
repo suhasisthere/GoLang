@@ -1,0 +1,38 @@
+package main
+
+import "fmt"
+
+var globalB int = 20 //global ariable cannot be dynamically declared
+func otherFunction() int {
+	fmt.Println("Value of B from otherFunction is ", globalB)
+	return 0
+}
+func passByValue(c int) {
+	c = 20
+	fmt.Println("value of c in passByValue is ", c)
+}
+func passByReference(d *int) {
+	*d = 20
+	fmt.Println("value of d in passByReference is ", *d)
+}
+
+func main() {
+	var a int = 10
+	var pointerOfA *int //*int tells the type of variabe this pointer pointerOfA refers to
+	addOfA := &a        //to get the address of variable (a) stored in a memory
+	pointerOfA = &a
+	fmt.Println("Address of A is :", addOfA)
+	fmt.Println("Pointer of A is :", pointerOfA)
+	fmt.Println("Vlaue of A is :", *pointerOfA)
+	otherFunction()
+	fmt.Println("Value of B from main is ", globalB)
+	var c, d = 10, 10
+	//pass by value
+	passByValue(c)
+	fmt.Println("Value of c after function call ", c)
+
+	//pass by reference
+	passByReference(&d)
+	fmt.Println("Value of d after function call ", d)
+
+}
