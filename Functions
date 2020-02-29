@@ -1,0 +1,21 @@
+package main
+
+import "fmt"
+
+//suppose we need to call a function with n number of inputs we can make use of variadic functions
+func addMultiple(nums ...int) int {
+	fmt.Println(nums)
+	fmt.Printf("%T\n", nums)
+	return 0
+}
+func main() {
+	var a, b = 10, 20
+	fmt.Println(add(a, b))
+	fmt.Println(addMultiple(a), addMultiple(a, b), addMultiple(a, a, b, b))
+
+}
+
+//calling a funcition
+func add(a int, b int) (int, int) {
+	return a + b, a * b
+}
