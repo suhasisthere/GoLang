@@ -1,0 +1,28 @@
+package main
+
+import (
+	"errors"
+	"fmt"
+	"math"
+)
+
+func sqRoot(value float64) (float64, error) {
+
+	if value < 0 {
+		return 0, errors.New("cannot be less than zero")
+	}
+
+	return math.Sqrt(value), nil
+}
+
+func main() {
+	result, err := sqRoot(-10) //two returns from sqRoot function
+	if err != nil {
+		//fmt.Println("error is ", err)
+		//for unknown error use panic
+		panic(err)
+	} else {
+		fmt.Println("value is ", result)
+	}
+
+}
